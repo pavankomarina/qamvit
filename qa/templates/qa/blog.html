@@ -1,0 +1,66 @@
+{% extends 'qa/base.html' %}
+{% block body %}
+
+<section id="blog">
+
+  <h1 style="color: black" class="text-center display-3">Sir MVIT Blog Page</h1>
+  <h6 class="font-weight-italic">Share your knowledge by writing blogs and explore others blogs to increase your knowledge</h6>
+
+
+
+
+
+
+<form method="POST">
+{% csrf_token %}
+<div class="jumbotron">
+  <div class="form-group">
+  	<div class="row">
+  		<div class="col-4">
+
+    		<label style="color: blue">Title</label>
+    		<input type="text" class="form-control" name="title" placeholder="Enter your title here!!" size="100">
+   		</div>
+   		<div class="col-8">
+   			<label style="color: blue">Content</label>
+   			<textarea class="form-control" rows="5" name="content" placeholder="Enter your content here !!"></textarea>
+  		</div>
+
+  	</div>
+  </div>
+  <button type="submit" class="btn btn-primary text-center">Submit</button>
+  </form>
+</div>
+
+
+<h1 class="display-4 text-center text-primary" >Recent blogs</h1>
+
+
+  <div class="container">
+    <div class="fill-viewport">
+    {%if blogs%}
+    {% for blog in blogs %}
+  
+    <div class="card">
+      <div class="card-header text-primary">
+        {{blog.title}}
+      </div>
+      <div class="card-body">
+        <h6 class="card-title">--written by {{blog.author}}</h6>
+        <p class="card-text">{{blog.content}}</p>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+  </div>
+</div>
+</section>
+
+
+{% endblock %}
+
+
+
+  
+ 

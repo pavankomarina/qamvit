@@ -1,0 +1,18 @@
+{% extends 'qa/base.html' %}
+
+{% block body %}
+<h1>Fill your details</h1>
+
+<form action="" method="POST" >
+{% csrf_token %}
+
+
+
+{{form.as_p}}
+
+</br>
+<input class="btn btn-primary"type="submit" name="Submit">
+</form>
+
+
+{% endblock %}

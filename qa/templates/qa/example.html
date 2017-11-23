@@ -1,0 +1,103 @@
+
+{% extends 'qa/base.html' %}
+{% block body %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <h1{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: red"></h1>
+    <div id="dialog" title="New message">
+            <p>{{message}}</p>
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+</br>
+<section id="introduction">
+ <div class="container">
+   <div class="row fill-viewport align-items-center">
+     <div class="col-12 col-md-6">
+       <h1 class="text-black" style='display:inline';>Welcome to Q/A MVIT</h1>
+       <p class="lead text-white-70">
+         Clarify your doubts by posting the questions related to your field and get answered by your Lecturers,Seniors and your fellow members.Moreover,write the blogs in the fields which you are interested in!
+       </p>
+       <a class="btn btn-primary" href="#tags" role="button">Let's Get Started!</a>
+     </div>
+   </div>
+ </div>
+</section>
+
+
+<section id="tags">
+  <div class="container">
+    <div class="fill-80-viewport">
+          <div>
+              <h1 class="display-4 align-items=center"> List of all tags!</h1></br>
+                <h5>Select the topics listed below!</h5>
+          </div>
+          <div class="container align-tems-center">
+    
+                {% if tags%}
+              {% for tag in tags%}
+          <a href="{%url 'qa:questions' tag.tag_id%}" class="btn btn-primary scrollreveal">{{tag}}<span class="badge badge-light"> .</span></a>
+
+              <script type="text/javascript">
+                sr.reveal('.leadss')
+          </script>
+
+              {% endfor %}
+              {% endif %}
+        </div>
+  </div>
+</div>
+</section>
+
+<section id="recent questions">
+  <div class="container">
+  <div class="row">
+    <div class="col">
+
+
+        <h1 style="color: orange">Recent questions</h1>
+          <div class="jumbotron leadss">
+              {%if questions%}
+      {%for i in questions%}
+    <p class="leads3">
+  <ul>
+              <li><a href="{%url 'qa:answers' i.id %}">{{i.questionfield}}</a></li>
+  </ul>
+</p>
+{% endfor %}
+{% endif %}
+</div>
+</div>
+ <div class="col">
+<h1 style="color: pink">Most liked answers</h1>
+<div class="jumbotron ">
+
+{%if most_likes%}
+{%for i in most_likes%}
+<p class="leads2">
+<ul>
+<li><a href="{%url 'qa:answers' i.question_id %}">{{i.answer}}</a>  written by<strong>{{i.written_by}}</strong></li>
+</ul>
+</p>
+{% endfor %}
+{% endif %}
+</div>
+</div>
+</div>
+
+</section>
+
+<section id="footer" class="bg-dark">
+  <div class="container">
+
+    <h2>All rights reserved!
+
+             </div>
+    
+    </h2>
+    </div>
+</section>
+
+{% endblock %}

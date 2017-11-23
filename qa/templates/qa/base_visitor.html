@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MVIT{% endblock %}</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+   
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #27292d">
+
+ <button> <a class="navbar-brand" href="{% url 'qa:home' %}">Q/A-MVIT</a></button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <button> <a class="navbar-brand" href="{% url 'qa:register' %}">Register</a></button>
+      </li>
+  
+        <button> <a class="nav-link navbar-brand" href="{% url 'qa:login' %}">&nbsp; Login</a></button>
+      </li>
+
+    </ul>
+  </div>
+
+  
+</nav>
+{% block body %}
+{% endblock %}
+</body>
+</html>

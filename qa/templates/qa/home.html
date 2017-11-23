@@ -1,0 +1,142 @@
+
+{% extends 'qa/base.html' %}
+{% block body %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <h1{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: red"></h1>
+    <div id="dialog" title="New message">
+            <p>{{message}}</p>
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+</br>
+<section id="introduction">
+ <div class="container">
+   <div class="row fill-viewport align-items-center">
+     <div class="col-12 col-md-6">
+       <h1 class="text-black" style='display:inline';>Welcome to Q/A MVIT</h1>
+       <p class="lead text-white-70">
+         Clarify your doubts by posting the questions related to your field and get answered by your Lecturers,Seniors and your fellow members.Moreover,write the blogs in the fields which you are interested in!
+       </p>
+       <a class="btn btn-primary" href="#tags" role="button">Let's Get Started!</a>
+     </div>
+   </div>
+ </div>
+</section>
+
+
+<section id="tags">
+  <div class="container">
+    <div class="fill-80-viewport">
+          <div>
+              <h1 class="display-4 align-items=center"> List of all tags!</h1></br>
+                <h5>Select the topics listed below!</h5>
+          </div>
+          <div class="container align-tems-center">
+    
+              {% if tags%}
+              {% for tag in tags%}
+          <a href="{%url 'qa:questions' tag.tag_id%}" class="btn btn-primary scrollreveal">{{tag}}<span class="badge badge-light">{{tag.no_of_questions}}</span></a>
+
+              <script type="text/javascript">
+                sr.reveal('.leadss')
+            </script>
+
+              {% endfor %}
+              {% endif %}
+          </div>
+        </br>
+      </br>
+    </br>
+  </br>
+</br>
+</br>
+          <form method="POST">
+{% csrf_token %}
+    <div class="form-group row">
+      <label style="color: green">Can't find Tag here.Enter tag to create one. </label>
+    </br>
+      <div class="col-xs-4">
+      <input type="text" class="form-control" name="tag_name" placeholder="Enter your tag here here!!">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    </div>
+  </div>
+
+</section>
+
+<section id="recent questions">
+  <div class="container">
+  <div class="row">
+    <div class="col">
+
+
+        <h1 style="color: orange">Recent questions</h1>
+          <div class="jumbotron leadss">
+              {%if questions%}
+      {%for i in questions%}
+    <p class="leads3">
+  <ul>
+              <li><a href="{%url 'qa:answers' i.id %}">{{i.questionfield}}.?</a></li>
+  </ul>
+</p>
+{% endfor %}
+{% endif %}
+</div>
+</div>
+ <div class="col">
+<h1 style="color: pink">Most liked answers</h1>
+<div class="jumbotron ">
+
+{%if most_likes%}
+{%for i in most_likes%}
+<p class="leads2">
+<ul>
+<li><a href="{%url 'qa:answers' i.question_id %}">{{i.answer}}</a>  written by<strong>{{i.written_by}}</strong></li>
+</ul>
+</p>
+{% endfor %}
+{% endif %}
+</div>
+</div>
+</div>
+
+</section>
+
+<footer>
+    <div class="wrapper" id="tab4">
+        <div id="footer-info">
+            <p> ©Copyright 2017 </br>Q/A-MVIT, Sir MVIT. All rights reserved.</p>
+            <!-- <p>Created by Pavan Kalyan Komarina<br>Ravi kumar</p> -->
+        </div>
+        <div id="footer-links">
+            
+                <h5>Sir M Visveswaraya institute of Technology,Bangalore</h5>
+               <ul style="color:black">
+                <li><a href="#introduction" style="color: white">About Us</a></li>
+                <li><a href="https://www.google.co.in/maps/place/Sir+M+Visvesvaraya+Institute+of+Technology/@13.151019,77.6077946,17z/data=!3m1!4b1!4m5!3m4!1s0x3bae192ddf1ae00d:0xa150c6dea93315c!8m2!3d13.151019!4d77.6099833" target="blank" style="color: white">Location</a></li>
+                <li><a href="#introduction" style="color:white">Facebook Page</a></li>
+                <li><a href="#introduction" style="color: white">Contact Us</a></li>
+            </ul>
+            
+        </div>
+        <div class="clear"></div>
+    </div>
+</footer>
+ <footer class="bd-footer text-muted">
+  <div class="container">
+    <ul class="bd-footer-links">
+     <!--  <li><a href="https://github.com/twbs/bootstrap">GitHub</a></li>
+      <li><a href="https://twitter.com/getbootstrap">Twitter</a></li>
+      <li><a href="/examples/">Examples</a></li>
+      <li><a href="/about/history/">About</a></li> -->
+    </ul>
+    
+  </div>
+</footer>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'qa/base.html' %}
+{% block body %}
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <h1{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: red"></h1>
+    <div id="dialog" title="New message">
+            <p>{{message}}</p>
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+<section id="answers">
+<div class="jumbotron">
+	<form method="POST">
+		{% csrf_token %}
+  		<div class="form-group">
+    		<label style="color: blue">Answer field</label>
+    		<input type="text" class="form-control" name="answer" placeholder="Enter your answer here!!" size="100">
+  		</div>
+  		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+
+<!-- Display the Question -->
+
+
+<div id="card-view">
+	<div class="response">
+		{%for i in question_here%}
+		<h1 style="color: orange"> Question : {{i}} ?</h1>
+		<h1 style="color:blue">Answers</h1>
+		{% endfor %}
+	</div>
+</div>
+
+
+<!-- Display Answers -->
+
+{%if answers_list%}
+{%for answers in answers_list%}
+
+
+<div class="card" >
+  <div class="card-body">
+   <p class="card-text">{{answers.answer}}</br> written by <strong>{{answers.written_by}}</strong></p>
+  </div>
+</div>
+	<form action="" method="POST">
+	{% csrf_token %}
+		<a href="{% url  'qa:like' answers.id %}">
+		<button type="button" id="btn1" onclick="myFunction()" class="btn btn-success">
+			<span class="glyphicon glyphicon-thumbs-up"> Like </span>
+		</button>
+		<strong>{{answers.likes}}</strong>
+ 		</a>
+	</form>
+
+
+{% endfor %}
+{%endif%}
+</section>
+{% endblock %}
+
+
+<p>Click the button below to disable the button above.</p>
+
+<button id="mybtn" onclick="myFunction()">Try it</button>
+

@@ -1,0 +1,42 @@
+{% extends 'qa/base.html' %}
+
+{% block body %}
+
+<section id="questions">
+<div class="jumbotron">
+<form method="POST">
+{% csrf_token %}
+    <div class="form-group">
+      <label style="color: blue">Ask Question </label>
+      <input type="text" class="form-control" name="questionfield" placeholder="Enter your question here!!">
+    </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+<div id="card-view">
+  <div class="response">
+
+  {%for i in tag_here%}
+    <h1 style="color: orange"> Tag : {{i}} </h1>
+  {% endfor %}
+  </div>
+</div>
+
+
+
+<div class="card">
+  <h4 class="card-header"><strong>List of all Questions</strong></h4>
+  <div class="card-body">
+  {% if question_list %}
+  {%for questions in question_list %}
+  <ul>
+    <li><a   href=" {%url 'qa:answers' questions.id %}" class="card-title">
+    {{questions}}</a> asked by <strong>{{questions.user_usn}}</strong></li>
+  </ul>
+  {%endfor%}
+  {%endif%}
+  </div>
+</div>
+</section>
+{% endblock %}
