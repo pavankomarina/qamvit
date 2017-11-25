@@ -3,12 +3,19 @@
 {% block register_active %}active{% endblock %}
 
 {% block body %}
-<div class="container-fluid">
+<section id="register">
+<div class="container-fluid" style="margin-left: 350px;">
+    <div class="container fill-viewport">
 
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <div class="panel panel-default">
                 <div class="panel-body">
+                </br>
+                </br>
+
+                </br>
+
                     <h3>Register for an Account</h3>
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
@@ -23,14 +30,15 @@
                         </div>
                     </form>
                 </div>
-                <div class="panel-footer">
-                    Already have an account? <a href="{% url 'qa:login' %}">Click here</a> to log in.
+                <div class="panel-footer" style="color: white">
+                    Already have an account? <a href="{% url 'qa:login' %}" style="color: #a0afe5">Click here</a> to log in.
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-
+</div>
+</div>
+</section>
 {% endblock %}
 

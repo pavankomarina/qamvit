@@ -109,7 +109,6 @@ def blog(request):
                     'most_likes':most_likes,
                         }
             return render(request,'qa/home.html',context)
-
     else:
 
         if request.user.is_authenticated():
@@ -226,7 +225,7 @@ def answers(request,question_id):
 
 def userdetails(request):
     if request.method == "POST":
-        form=UserdetailsForm(request.POST or None)
+        form=UserdetailsForm(request.POST)
         if form.is_valid():
             USN=form.cleaned_data['USN']
             name=form.cleaned_data['name']

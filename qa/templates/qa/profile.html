@@ -3,10 +3,6 @@
 {% block body %}
 <section id="profile">
  
-
-
-
-
 <section id="recent questions">
   <div class="container">
   <div class="row">
@@ -15,7 +11,7 @@
 
         <h1 style="color: orange">My Details</h1>
           <div class="jumbotron leadss">
-  {%for i in userdetails%}
+      {%for i in userdetails%}
         <h4>Name:{{i.name}}</h4></br>
         <h4>Branch:{{i.branch}}</h4></br>
         <h4>Semester:{{i.semester}}</h4>
@@ -40,15 +36,17 @@
 
 <div class="card text-center">
   <div class="card-header">
-    <b style="color: red">Answers written by me!</b>
+    <b style="color: ">Answers written by me!</b>
   </div>
-  <div class="card-body" style="background-color: #edc2ec">
+  <div class="card-body">
    
     {%for q in ans_user%}
     <h3">{{q}}</h3>
     {% endfor %}
   </div>
 </div>
+
+
 </section>
 
 

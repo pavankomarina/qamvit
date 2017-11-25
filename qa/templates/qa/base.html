@@ -25,7 +25,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jQuery UI Dialog - Default functionality</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
@@ -34,26 +34,32 @@
   } );
   </script>
   <style type="text/css">
-  #introduction {
+ /* #introduction {
   background: linear-gradient(rgba(100,181,246 ,1), rgba(0,0,0,0.8)), url('http://bit.ly/2fBj6OJ') 0% 0%/cover 
+}*/
+#userdetails {
+  background: linear-gradient(rgba(237, 228, 184 ,1), rgba(0,0,0,0.8)),url('{% static 'images/collegeimage.jpg'%}') 0% 0%/cover 
 }
 
+ #introduction {
+  background: linear-gradient(rgba(100,181,246 ,1), rgba(0,0,0,0.8)),url('{% static 'images/introduction.jpg'%}') 0% 0%/cover 
+}
 #blog{
+  background: linear-gradient(rgba(100,181,246 ,1), rgba(0,0,0,0.8)), url('{% static 'images/blogimage.jpg'%}') 0% 0%/cover 
+}
+#profile{
   background: linear-gradient(rgba(100,181,246 ,1), rgba(0,0,0,0.8)), url('https://thumbs.dreamstime.com/z/web-blog-background-concept-glowing-12266066.jpg') 0% 0%/cover 
 }
-/*#profile{
-  background: linear-gradient(rgba(100,181,246 ,1), rgba(0,0,0,0.8)), url('https://thumbs.dreamstime.com/z/web-blog-background-concept-glowing-12266066.jpg') 0% 0%/cover 
-}*/
 
 #questions{
-  background: linear-gradient(rgba(100,181,246 ,1), rgba(0,0,0,0.8)), url('http://2.bp.blogspot.com/-F8SgBirV4P4/Uh98BRg1f_I/AAAAAAAAGSE/xwHJqn4RDTs/s1600/Background-Questions1.jpg') 0% 0%/cover 
+  background: linear-gradient(rgba(100,181,246 ,1), rgba(0,0,0,0.8)), url('{% static 'images/questionsimage.jpg'%}') 0% 0%/cover 
 }
 #answers{
   background: url('') 0% 0%/cover
 }
 #tags {
   background: /*linear-gradient(rgba(100,181,246 ,1))*/
-   url('https://previews.123rf.com/images/irazavod/irazavod1104/irazavod110400011/9349828-Background-of-blue-color-Vector-abstract-Sparkling-pearls-is-spilt-Behind-them-decorative-waves--Stock-Vector.jpg') 0% 0%/cover 
+   url('{% static 'images/tagsimage.jpg'%}') 0% 0%/cover 
 }
 
 

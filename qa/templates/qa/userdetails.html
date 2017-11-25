@@ -1,18 +1,104 @@
 {% extends 'qa/base.html' %}
 
 {% block body %}
+
+
+<section id="userdetails">
+<div class="container-fluid">
+	<h1 style="position: 500px;">Fill your details</h1>
+<marquee><h1>Hello {{request.user}} !</h1></marquee>
+
+
+<div class="container " style="margin-left: 500px;">
+    <div class="row fill-viewport">
+
+</br>
+</br>
+
+  <form class="form-horizontal" role="form" action="{% url 'qa:userdetails'%}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="input col-sm-2" for="id_username">
+                                USN:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_username"  maxlength="10" name="USN" type="text" minlength="10">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="input col-sm-2" for="id_username">
+                               FULL NAME:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_username" maxlength="30" name="name" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="input col-sm-2" for="id_username">
+                                BRANCH:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_username" maxlength="3" name="branch" type="text" minlength="2" maxlength="3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_password">
+                            SEMESTER:
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="id_password" name="semester" type="number" min="1" max="8" required="True">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section id="userdetails">
+
+<div class="container fill-viewport  " style="margin-left: 300px;">
+
+</br>
+</br>
+
+</br>
+
+</br>
+
 <h1>Fill your details</h1>
 
 <form action="" method="POST" >
 {% csrf_token %}
 
-
-
-{{form.as_p}}
-
+{% for field in form %}
+  {{field}}
 </br>
-<input class="btn btn-primary"type="submit" name="Submit">
+</br>
+{% endfor %}
+</br>
+<input class="btn btn-success"type="submit" name="Submit">
 </form>
-
+</div>
+</section> -->
 
 {% endblock %}
