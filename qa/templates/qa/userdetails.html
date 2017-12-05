@@ -8,13 +8,14 @@
 	<h1 style="position: 500px;">Fill your details</h1>
 <marquee><h1>Hello {{request.user}} !</h1></marquee>
 
-
+{% if messages%}
+    <h5 style="color: red" align="center"><strong>USN already exists!</strong></h5>
+    {% endif %}
 <div class="container " style="margin-left: 500px;">
     <div class="row fill-viewport">
-
+   
 </br>
 </br>
-
   <form class="form-horizontal" role="form" action="{% url 'qa:userdetails'%}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form-group">
@@ -31,6 +32,7 @@
                             </label>
                             <div class="col-sm-10">
                                 <input id="id_username" maxlength="30" name="name" type="text">
+                                
                             </div>
                         </div>
                         <div class="form-group">
@@ -38,7 +40,19 @@
                                 BRANCH:
                             </label>
                             <div class="col-sm-10">
-                                <input id="id_username" maxlength="3" name="branch" type="text" minlength="2" maxlength="3">
+                                <!-- <input id="id_username" maxlength="3" name="branch" type="text" minlength="2" maxlength="3"> -->
+                                <select name="branch" id="id_username">
+                                    <option disabled selected value> -- select a Branch -- </option>
+                                                <option value="Computer science">CSE</option>
+                                                <option value="Information science">ISE</option>
+                                                <option value="Electrical">EEE</option>
+                                                <option value="Electronics and communication">ECE</option>
+                                                <option value="Mechanical">ME</option>
+                                                <option value="Telecommunication">TCE</option>
+                                                <option value="Civil">CE</option>
+                                                
+                                                <option value="Biotechnology">BioTech</option>
+                </select>
                             </div>
                         </div>
                         <div class="form-group">

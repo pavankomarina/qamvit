@@ -8,25 +8,17 @@ class UserdetailsForm(forms.ModelForm):
     class Meta:
         model = Userdetails
         fields = ['USN', 'name', 'branch', 'semester']
-
-
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
         model = User
         fields = ['username', 'email', 'password']
-
-
-        
 class QuestionForm(forms.ModelForm):
 
 	class Meta:
 		model=Questions
 		fields=['questionfield']
-
-
-
 class AnswerForm(forms.ModelForm):
 	class Meta:
 		model=Answers

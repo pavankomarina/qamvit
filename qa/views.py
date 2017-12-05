@@ -242,6 +242,13 @@ def userdetails(request):
                     'most_likes':most_likes,
                         }
             return render(request,'qa/home.html',context)
+        else:
+            form=UserdetailsForm(request.POST)
+            context={
+            'form':form,
+            'messages':'USN already exists'
+            }
+            return render(request,'qa/userdetails.html',context)
     else:
         if request.user.is_authenticated():
             form=UserdetailsForm(request.POST or None)
