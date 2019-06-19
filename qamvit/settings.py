@@ -135,3 +135,4 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     # django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+STATIC_ROOT = '/static/'
