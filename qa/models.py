@@ -3,7 +3,7 @@ from django.db import models
 import datetime
 
 class Userdetails(models.Model):
-    user = models.ForeignKey(User, default=1)
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
     USN = models.CharField(max_length=100, primary_key=True)
     semester=models.IntegerField(max_length=1)
     name = models.CharField(max_length=50)
