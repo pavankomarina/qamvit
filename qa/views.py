@@ -69,7 +69,7 @@ def home(request):
                 tag_names=form.cleaned_data['tag_name']
                 a=Tags(tag_name=tag_names)
                 a.save()
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         recent_questions=Questions.objects.all().order_by('id').reverse()[:4]
         most_likes=Answers.objects.all().order_by('likes').reverse()[:4]
         
@@ -111,7 +111,7 @@ def blog(request):
             return render(request,'qa/home.html',context)
     else:
 
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             form=BlogForm(request.POST or None)
             blogs=Blog.objects.all()
             context={
@@ -150,7 +150,7 @@ def questions(request,tag_id):
             return render(request,'qa/home.html',context)
     else:
 
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             question_list=Questions.objects.filter(question_tag_id=tag_id)
             form=QuestionForm(request.POST or None)
             tag_here=Tags.objects.filter(tag_id=tag_id)
@@ -207,7 +207,7 @@ def answers(request,question_id):
                 }
                 return render(request,'qa/home.html',context)
     else:
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             answers_list=Answers.objects.filter(question_id=question_id)
             question_here=Questions.objects.filter(id=question_id)
             form=AnswerForm(request.POST or None)
@@ -250,7 +250,7 @@ def userdetails(request):
             }
             return render(request,'qa/userdetails.html',context)
     else:
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             form=UserdetailsForm(request.POST or None)
             context={
             'form':form,
