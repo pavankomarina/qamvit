@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -144,3 +146,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Extra places for collectstatic to find static files.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+GRAPHENE = {
+    'SCHEMA': 'qamvit.schema.schema'
+}

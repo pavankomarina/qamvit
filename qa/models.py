@@ -36,7 +36,7 @@ class Questions(models.Model):
 
 class Answers(models.Model):
 	answer=models.CharField(max_length=1000)
-	question=models.ForeignKey(Questions,on_delete=models.CASCADE)
+	question=models.ForeignKey(Questions,related_name="questions_id",on_delete=models.CASCADE)
 	likes=models.IntegerField(default=0)
 	written_by=models.CharField(max_length=100)
 	date=models.DateField(default=datetime.date.today())
