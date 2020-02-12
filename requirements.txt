@@ -1,5 +1,5 @@
 aniso8601==6.0.0
-Django==2.1
+Django==2.2.10
 django-extensions==2.1.9
 graphene==2.1.6
 graphene-django==2.3.2
