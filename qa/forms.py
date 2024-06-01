@@ -7,6 +7,7 @@ class UserdetailsForm(forms.ModelForm):
 
     class Meta:
         model = Userdetails
+	# test
         fields = ['USN', 'name', 'branch', 'semester']
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
