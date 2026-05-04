@@ -5,7 +5,7 @@ graphene==2.1.6
 graphene-django==2.3.2
 graphql-core==2.2
 graphql-relay==0.4.5
-gunicorn==19.9.0
+gunicorn==25.3.0
 promise==2.2.1
 pytz==2019.1
 Rx==1.6.1
